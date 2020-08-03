@@ -4,6 +4,12 @@ import { Router } from 'express';
 // import CreateTransactionService from '../services/CreateTransactionService';
 // import DeleteTransactionService from '../services/DeleteTransactionService';
 // import ImportTransactionsService from '../services/ImportTransactionsService';
+interface Request {
+  title: string;
+  value: number;
+  type: 'income' | 'outcome';
+  category: string;
+}
 
 const transactionsRouter = Router();
 
@@ -12,7 +18,7 @@ transactionsRouter.get('/', async (request, response) => {
 });
 
 transactionsRouter.post('/', async (request, response) => {
-  // TODO
+  const { title, value, type, category } = request.body;
 });
 
 transactionsRouter.delete('/:id', async (request, response) => {
